@@ -4,10 +4,14 @@ var traverse = module.exports = function (obj) {
 
 function Traverse (obj) {
     this.value = obj;
+    this.pathSeparator = '.'
 }
 
 Traverse.prototype.get = function (ps) {
     var node = this.value;
+    if (typeof ps === 'string') { 
+        ps = ps.split(this.pathSeparator)
+    }
     for (var i = 0; i < ps.length; i ++) {
         var key = ps[i];
         if (!node || !hasOwnProperty.call(node, key)) {
@@ -21,6 +25,9 @@ Traverse.prototype.get = function (ps) {
 
 Traverse.prototype.has = function (ps) {
     var node = this.value;
+    if (typeof ps === 'string') { 
+        ps = ps.split(this.pathSeparator)
+    }
     for (var i = 0; i < ps.length; i ++) {
         var key = ps[i];
         if (!node || !hasOwnProperty.call(node, key)) {
@@ -33,6 +40,9 @@ Traverse.prototype.has = function (ps) {
 
 Traverse.prototype.set = function (ps, value) {
     var node = this.value;
+    if (typeof ps === 'string') { 
+        ps = ps.split(this.pathSeparator)
+    }
     for (var i = 0; i < ps.length - 1; i ++) {
         var key = ps[i];
         if (!hasOwnProperty.call(node, key)) node[key] = {};

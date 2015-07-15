@@ -112,15 +112,19 @@ Create a deep clone of the object.
 
 ## .get(path)
 
-Get the element at the array `path`.
+Get the element at the array or string `path`.
 
 ## .set(path, value)
 
-Set the element at the array `path` to `value`.
+Set the element at the array or string `path` to `value`.
 
 ## .has(path)
 
-Return whether the element at the array `path` exists.
+Return whether the element at the array or string `path` exists.
+
+## .pathSeparator = `.`
+
+Path separator for string expressions.
 
 # context
 
